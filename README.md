@@ -18,7 +18,7 @@ npm exec tsc -- --noEmit
 npm run build
 ```
 
-项目使用 React、Vinext 与 Tailwind CSS。`next.config.ts` 配置静态导出，发布文件位于 `dist/client/`，可由静态托管服务提供访问。Sites 发布配置位于 `.openai/hosting.json`。当前资源和导航以站点根路径为基础；如改用 GitHub Pages 项目子路径，需要统一配置前缀后重新构建。
+项目使用 React、Vinext 与 Tailwind CSS。`vite.config.ts` 中的 `vinext({ nextConfig })` 配置静态导出，发布文件位于 `dist/client/`，可由静态托管服务提供访问。Sites 发布配置位于 `.openai/hosting.json`。当前资源和导航以站点根路径为基础；如改用 GitHub Pages 项目子路径，需要统一配置前缀后重新构建。
 
 国内访问的域名、托管及上传步骤见 [国内访问部署](docs/国内访问部署.md)。Git 集成项目使用 `Other` 框架预设，根目录 `edgeone.json` 指定 `dist/client` 为输出目录并配置活动路由。也可使用 `scripts/package_edgeone.py` 将构建结果打包为可直接上传的 ZIP。
 
