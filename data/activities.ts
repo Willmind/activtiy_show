@@ -23,64 +23,6 @@ export type Activity = {
 };
 const content = [
   {
-    slug: 'dragon-boat',
-    title: '端午 · 把心意装进节日',
-    subtitle: '节日福利 / 主题陈列 / 活动回顾',
-    category: '节日活动',
-    accent: '#dbe9cd',
-    description:
-      '以端午节日氛围为主线，将福利礼品、下午茶与现场陈列结合。从礼盒介绍、活动宣传到现场照片与回顾，记录一份节日心意如何来到同事身边。',
-    tags: ['节日福利', '现场布置', '活动宣传'],
-    points: [
-      {
-        title: '一份节日心意',
-        text: '礼盒介绍与福利陈列，让节日关怀有具体的呈现。',
-      },
-      {
-        title: '一个相聚现场',
-        text: '饮品、餐食与端午主题布置，共同营造轻松的交流氛围。',
-      },
-      {
-        title: '一套活动记录',
-        text: '宣传物料、现场照片与回顾长图，保留活动的不同侧面。',
-      },
-    ],
-    labels: [
-      '端午福利礼盒介绍',
-      '端午活动回顾',
-      '端午主题活动长图',
-      '下午茶与主题陈列',
-      '端午现场细节',
-      '端午活动现场全景',
-      '端午福利陈列',
-    ],
-  },
-  {
-    slug: 'new-office',
-    title: '新空间 · 向上生长',
-    subtitle: '23 楼办公空间 / 入驻活动',
-    category: '办公空间',
-    accent: '#d6e3f4',
-    description:
-      '新空间启用，也是一次团队共同的出发。记录 23 楼办公环境、入驻仪式区与主题活动，用完整的现场资料呈现空间和人的连接。',
-    tags: ['办公空间', '入驻活动', '环境布置'],
-    points: [
-      {
-        title: '办公空间',
-        text: '工位、公共区域与现场环境，展示新办公空间的面貌。',
-      },
-      {
-        title: '入驻氛围',
-        text: '蓝白气球与主题背景，将办公场地转化为有仪式感的相聚现场。',
-      },
-      {
-        title: '共同的记录',
-        text: '活动回顾串联空间展示、现场环节与员工互动。',
-      },
-    ],
-    labels: ['23 楼新空间入驻回顾', '入驻活动仪式区', '新办公区工位与布置'],
-  },
-  {
     slug: 'mid-autumn',
     title: '中秋 · 把团圆带到身边',
     subtitle: '中秋福利 / 双节活动 / 现场布置',
@@ -271,4 +213,7 @@ export const activities: Activity[] = content.map(({ labels, ...item }) => ({
     label: labels[index],
   })),
 }));
-export const categories = ['全部活动', '节日活动', '员工关怀', '办公空间'];
+export const categories = [
+  '全部活动',
+  ...new Set(activities.map((activity) => activity.category)),
+];

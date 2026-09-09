@@ -1,6 +1,7 @@
 import { ActivityGrid } from '@/components/portfolio/activity-grid';
 import { ResumeSection } from '@/components/portfolio/resume-section';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
+import { activities } from '@/data/activities';
 
 export default function Home() {
   return (
@@ -34,10 +35,10 @@ export default function Home() {
             </span>
             <img
               className="hero-photo"
-              src="/images/activities/dragon-boat/06-cover.webp"
+              src="/images/activities/mid-autumn/05-cover.webp"
               width="960"
               height="720"
-              alt="端午活动现场，整齐摆放的饮品、礼袋和节日布置"
+              alt="中秋国庆双节活动的主题布置与节日礼篮"
               fetchPriority="high"
             />
             <img
@@ -55,11 +56,16 @@ export default function Home() {
         </div>
         <div className="hero-bottom">
           <div className="hero-stat">
-            <b>10</b>
+            <b>{activities.length}</b>
             <span>类活动记录</span>
           </div>
           <div className="hero-stat">
-            <b>32</b>
+            <b>
+              {activities.reduce(
+                (total, activity) => total + activity.images.length,
+                0,
+              )}
+            </b>
             <span>张活动素材</span>
           </div>
           <div className="hero-stat">
@@ -79,7 +85,7 @@ export default function Home() {
               <span className="section-number">01 / SELECTED ACTIVITIES</span>
               <h2>把用心，留在每个现场。</h2>
             </div>
-            <p>节日的仪式感、日常的小惊喜，以及新空间的第一天。</p>
+            <p>节日的仪式感，以及日常里的小惊喜。</p>
           </div>
           <ActivityGrid />
         </div>

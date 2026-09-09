@@ -31,6 +31,8 @@ GROUPS = {
     '夏日雪糕': ('summer', 1),
     '清明': ('qingming', 1),
 }
+# Keep these source groups in the local WebP archive, outside the portfolio.
+ARCHIVE_ONLY_GROUPS = {'搬迁23楼', '端午'}
 
 def normalized(path):
     image = ImageOps.exif_transpose(Image.open(path))
@@ -64,6 +66,9 @@ def main():
         records = []
         files = sorted(p for p in (ROOT / group).iterdir() if p.suffix.lower() in {'.jpg','.jpeg','.png'})
         for i, path in enumerate(files, 1):
+            originals.append((group, path))
+            if group in ARCHIVE_ONLY_GROUPS:
+                continue
             image = normalized(path)
             is_long = image.height / image.width > 2.4
             # These files are website derivatives. The archive below retains full resolution.
@@ -88,7 +93,8 @@ def main():
             thumb_name=f'{i:02d}-cover.webp'
             save(thumb,PUBLIC/slug/thumb_name,85)
             records.append({'id':f'{slug}-{i:02d}','originalName':path.name,'kind':'long' if is_long else 'image','thumb':f'/images/activities/{slug}/{thumb_name}','parts':assets})
-            originals.append((group, path))
+        if group in ARCHIVE_ONLY_GROUPS:
+            continue
         manifest[slug]={'group':group,'cover':records[cover_index-1]['thumb'],'images':records}
         print(f'Website assets ready: {group}',flush=True)
     DATA.mkdir(parents=True,exist_ok=True)
