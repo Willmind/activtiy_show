@@ -3,6 +3,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { activities, categories } from '@/data/activities';
 import { sitePath } from '@/lib/site-path';
+import { cardImageSizes } from '@/lib/image-sizes';
 
 export function ActivityGrid() {
   return (
@@ -28,6 +29,7 @@ export function ActivityGrid() {
                 <a
                   href={sitePath(`/activities/${activity.slug}`)}
                   className="project-card"
+                  data-category={activity.category}
                   key={activity.slug}
                 >
                   <div
@@ -36,6 +38,8 @@ export function ActivityGrid() {
                   >
                     <img
                       src={activity.cover}
+                      srcSet={activity.coverSrcSet}
+                      sizes={cardImageSizes}
                       width="960"
                       height="720"
                       alt={activity.title}

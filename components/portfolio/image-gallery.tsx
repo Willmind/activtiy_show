@@ -16,6 +16,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import type { ActivityImage } from '@/data/activities';
+import { cardImageSizes } from '@/lib/image-sizes';
 
 export function ImageGallery({
   images,
@@ -51,6 +52,8 @@ export function ImageGallery({
             <div className="gallery-thumb">
               <img
                 src={image.thumb}
+                srcSet={image.thumbSrcSet}
+                sizes={cardImageSizes}
                 width="960"
                 height="720"
                 alt={image.label}
@@ -141,6 +144,7 @@ export function ImageGallery({
                     alt={`${selected.label}${selected.parts.length > 1 ? `，第 ${i + 1} 部分` : ''}`}
                     key={part.src}
                     loading={i === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
                   />
                 ))}
               </div>

@@ -2,7 +2,13 @@ import { ActivityGrid } from '@/components/portfolio/activity-grid';
 import { ResumeSection } from '@/components/portfolio/resume-section';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import { activities } from '@/data/activities';
-import { sitePath } from '@/lib/site-path';
+
+const heroActivity = activities.find(
+  (activity) => activity.slug === 'mid-autumn',
+)!;
+const secondaryActivity = activities.find(
+  (activity) => activity.slug === 'qixi',
+)!;
 
 export default function Home() {
   return (
@@ -36,7 +42,9 @@ export default function Home() {
             </span>
             <img
               className="hero-photo"
-              src={sitePath('/images/activities/mid-autumn/05-cover.webp')}
+              src={heroActivity.cover}
+              srcSet={heroActivity.coverSrcSet}
+              sizes="(max-width: 760px) 90vw, (max-width: 1296px) 43vw, 532px"
               width="960"
               height="720"
               alt="中秋国庆双节活动的主题布置与节日礼篮"
@@ -44,7 +52,10 @@ export default function Home() {
             />
             <img
               className="hero-photo-secondary"
-              src={sitePath('/images/activities/qixi/02-cover.webp')}
+              src={secondaryActivity.cover}
+              srcSet={secondaryActivity.coverSrcSet}
+              sizes="(max-width: 760px) 42vw, 260px"
+              decoding="async"
               width="960"
               height="720"
               alt="七夕粉色主题福利与现场布置"

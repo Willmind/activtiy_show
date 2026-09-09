@@ -2,7 +2,7 @@
 
 面向行政专员求职的中文作品集。包含 8 类活动、22 张活动素材、独立活动详情、分类浏览、完整长图阅读、图片放大切换、工作经历及简历 PDF 下载。
 
-公开网站：https://zeng-huiyi-portfolio.tan13126476635.chatgpt.site
+公开网站：https://willmind.github.io/activtiy_show/
 
 ## 开发
 
@@ -23,6 +23,19 @@ npm run build
 GitHub Pages 使用 `npm run build:github-pages`，额外生成活动目录的 `index.html`，支持直接打开和刷新详情页。仓库 Settings → Pages → Source 选择 **GitHub Actions**。推送 `main` 后自动发布，成功后的地址为 `https://willmind.github.io/activtiy_show/`。该免费网址的国内连通性需要用实际手机网络测试。
 
 国内访问的域名、托管及上传步骤见 [国内访问部署](docs/国内访问部署.md)。Git 集成项目使用 `Other` 框架预设，根目录 `edgeone.json` 指定 `dist/client` 为输出目录并配置活动路由。也可使用 `scripts/package_edgeone.py` 将构建结果打包为可直接上传的 ZIP。
+
+## 导出离线 HTML
+
+使用普通根路径构建，不设置 `NEXT_PUBLIC_BASE_PATH`：
+
+```bash
+npm run build
+python3 scripts/export_offline.py outputs/曾慧仪_活动作品集_离线HTML.zip
+```
+
+脚本生成 ZIP 和同名解压目录。完整解压后，在电脑浏览器中打开 `index.html`，即可离线查看分类、活动详情、放大及切换图片，并打开或下载简历 PDF。分享时发送整个 ZIP，不能只发送首页文件。手机压缩包预览器可能不执行网页脚本，建议使用电脑浏览器。
+
+导出程序将网页地址改成相对文件路径，并用本地普通 JavaScript 提供分类和图片浏览功能，不依赖服务器、CDN 或 React 运行时。其交互代码和样式位于 `scripts/offline.js`、`scripts/offline.css`。
 
 ## 内容维护
 
@@ -45,6 +58,10 @@ GitHub Pages 使用 `npm run build:github-pages`，额外生成活动目录的 `
 ```bash
 python3 scripts/prepare_images.py '/path/to/活动图片' --site-output '/path/to/activtiy_show'
 ```
+
+只更新网站派生图片、不重新编码完整分辨率存档时，在命令末尾添加 `--site-only`。网站大图使用质量 82（普通图片）和 86（长图），保持已有展示尺寸及分段；封面提供 480、768、960 像素三种宽度，由浏览器根据显示尺寸和屏幕像素密度选择。大图在打开图片查看器后才加载。
+
+本轮优化将原有网站图片从 14,113,544 字节降至 10,573,926 字节，减少约 25.1%；计入新增的小尺寸封面后，全部网站图片为 12,130,082 字节。新增版本不会同时全部下载，实际传输量取决于浏览的页面与屏幕尺寸。
 
 处理步骤包括校正照片方向、处理可用的色彩配置、编码 WebP、生成封面、长图分段，并验证每个输出能解码。完整分辨率存档使用质量 90（照片）和 92（长图），属于高质量有损压缩，并非逐像素无损。唯一超过 WebP 尺寸限制的端午长图按顺序分成 3 段，完整保留原始宽度与内容。
 
