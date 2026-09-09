@@ -1,0 +1,71 @@
+{
+  "buildCommand": "npm run build",
+  "installCommand": "npm ci",
+  "outputDirectory": "dist/client",
+  "rewrites": [
+    {
+      "source": "/activities/qixi",
+      "destination": "/activities/qixi.html"
+    },
+    {
+      "source": "/activities/qixi/",
+      "destination": "/activities/qixi.html"
+    },
+    {
+      "source": "/activities/mid-autumn",
+      "destination": "/activities/mid-autumn.html"
+    },
+    {
+      "source": "/activities/mid-autumn/",
+      "destination": "/activities/mid-autumn.html"
+    },
+    {
+      "source": "/activities/programmer-day",
+      "destination": "/activities/programmer-day.html"
+    },
+    {
+      "source": "/activities/programmer-day/",
+      "destination": "/activities/programmer-day.html"
+    },
+    {
+      "source": "/activities/christmas",
+      "destination": "/activities/christmas.html"
+    },
+    {
+      "source": "/activities/christmas/",
+      "destination": "/activities/christmas.html"
+    },
+    {
+      "source": "/activities/kickoff",
+      "destination": "/activities/kickoff.html"
+    },
+    {
+      "source": "/activities/kickoff/",
+      "destination": "/activities/kickoff.html"
+    },
+    {
+      "source": "/activities/new-year-tea",
+      "destination": "/activities/new-year-tea.html"
+    },
+    {
+      "source": "/activities/new-year-tea/",
+      "destination": "/activities/new-year-tea.html"
+    },
+    {
+      "source": "/activities/summer",
+      "destination": "/activities/summer.html"
+    },
+    {
+      "source": "/activities/summer/",
+      "destination": "/activities/summer.html"
+    },
+    {
+      "source": "/activities/qingming",
+      "destination": "/activities/qingming.html"
+    },
+    {
+      "source": "/activities/qingming/",
+      "destination": "/activities/qingming.html"
+    }
+  ]
+}
