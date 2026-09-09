@@ -2,6 +2,7 @@
 import { ArrowUpRight } from 'lucide-react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { activities, categories } from '@/data/activities';
+import { sitePath } from '@/lib/site-path';
 
 export function ActivityGrid() {
   return (
@@ -25,7 +26,7 @@ export function ActivityGrid() {
               .filter((a) => category === '全部活动' || a.category === category)
               .map((activity) => (
                 <a
-                  href={`/activities/${activity.slug}`}
+                  href={sitePath(`/activities/${activity.slug}`)}
                   className="project-card"
                   key={activity.slug}
                 >

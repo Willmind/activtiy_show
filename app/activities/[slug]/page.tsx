@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { ArrowLeft, ArrowRight, ArrowUpRight, Images } from 'lucide-react';
 import { activities } from '@/data/activities';
 import { ImageGallery } from '@/components/portfolio/image-gallery';
+import { sitePath } from '@/lib/site-path';
 
 export function generateStaticParams() {
   return activities.map((activity) => ({ slug: activity.slug }));
@@ -32,7 +33,7 @@ export default async function ActivityPage({
   return (
     <main id="main-content">
       <section className="detail-hero shell">
-        <a className="back-link" href="/#activities">
+        <a className="back-link" href={sitePath('/#activities')}>
           <ArrowLeft size={16} />
           全部活动
         </a>
@@ -95,11 +96,11 @@ export default async function ActivityPage({
         </div>
       </section>
       <nav className="shell next-project" aria-label="其他活动">
-        <a className="back-link" href="/#activities">
+        <a className="back-link" href={sitePath('/#activities')}>
           <ArrowLeft size={16} />
           返回全部活动
         </a>
-        <a href={`/activities/${next.slug}`}>
+        <a href={sitePath(`/activities/${next.slug}`)}>
           <span>
             下一场活动 <ArrowRight size={15} />
           </span>
