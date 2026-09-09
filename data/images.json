@@ -1,0 +1,558 @@
+{
+  "qixi": {
+    "group": "七夕",
+    "cover": "/images/activities/qixi/02-cover.webp",
+    "images": [
+      {
+        "id": "qixi-01",
+        "originalName": "IMG_3326.JPG",
+        "kind": "image",
+        "thumb": "/images/activities/qixi/01-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/qixi/01.webp",
+            "width": 1500,
+            "height": 2000
+          }
+        ]
+      },
+      {
+        "id": "qixi-02",
+        "originalName": "IMG_3327.JPG",
+        "kind": "image",
+        "thumb": "/images/activities/qixi/02-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/qixi/02.webp",
+            "width": 2000,
+            "height": 1125
+          }
+        ]
+      },
+      {
+        "id": "qixi-03",
+        "originalName": "iwELAqNwbmcDBgTRChUF0RHuBrB-57TvFDaxLwiOxa-CvDQAB9IHCPsECAAJsmRpbmdSaWNoVGV4dEVkaXRvcgoAC9IA9Ufv.png",
+        "kind": "image",
+        "thumb": "/images/activities/qixi/03-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/qixi/03.webp",
+            "width": 1125,
+            "height": 2000
+          }
+        ]
+      }
+    ]
+  },
+  "new-office": {
+    "group": "搬迁23楼",
+    "cover": "/images/activities/new-office/02-cover.webp",
+    "images": [
+      {
+        "id": "new-office-01",
+        "originalName": "202512191505162242.png",
+        "kind": "long",
+        "thumb": "/images/activities/new-office/01-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/new-office/01-part01.webp",
+            "width": 800,
+            "height": 3140
+          },
+          {
+            "src": "/images/activities/new-office/01-part02.webp",
+            "width": 800,
+            "height": 3140
+          },
+          {
+            "src": "/images/activities/new-office/01-part03.webp",
+            "width": 800,
+            "height": 3139
+          }
+        ]
+      },
+      {
+        "id": "new-office-02",
+        "originalName": "lQDPJwTSCFtCNv_NB1PNDQWw-dXJipjka9kJHJMJKOzTAQ_3333_1875.jpg",
+        "kind": "image",
+        "thumb": "/images/activities/new-office/02-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/new-office/02.webp",
+            "width": 2000,
+            "height": 1125
+          }
+        ]
+      },
+      {
+        "id": "new-office-03",
+        "originalName": "lQDPKdg3hlsiVv_NC9DND8Cwf9nEJ5HpOXwJHJMJKOzTAA_4032_3024.jpg",
+        "kind": "image",
+        "thumb": "/images/activities/new-office/03-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/new-office/03.webp",
+            "width": 2000,
+            "height": 1500
+          }
+        ]
+      }
+    ]
+  },
+  "dragon-boat": {
+    "group": "端午",
+    "cover": "/images/activities/dragon-boat/06-cover.webp",
+    "images": [
+      {
+        "id": "dragon-boat-01",
+        "originalName": "202606111007548290.png",
+        "kind": "long",
+        "thumb": "/images/activities/dragon-boat/01-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/dragon-boat/01-part01.webp",
+            "width": 1400,
+            "height": 3069
+          },
+          {
+            "src": "/images/activities/dragon-boat/01-part02.webp",
+            "width": 1400,
+            "height": 3069
+          },
+          {
+            "src": "/images/activities/dragon-boat/01-part03.webp",
+            "width": 1400,
+            "height": 3069
+          }
+        ]
+      },
+      {
+        "id": "dragon-boat-02",
+        "originalName": "202606181654313542.png",
+        "kind": "long",
+        "thumb": "/images/activities/dragon-boat/02-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/dragon-boat/02-part01.webp",
+            "width": 1400,
+            "height": 4285
+          },
+          {
+            "src": "/images/activities/dragon-boat/02-part02.webp",
+            "width": 1400,
+            "height": 4285
+          }
+        ]
+      },
+      {
+        "id": "dragon-boat-03",
+        "originalName": "202606181654442124.png",
+        "kind": "long",
+        "thumb": "/images/activities/dragon-boat/03-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/dragon-boat/03-part01.webp",
+            "width": 1400,
+            "height": 3024
+          },
+          {
+            "src": "/images/activities/dragon-boat/03-part02.webp",
+            "width": 1400,
+            "height": 3024
+          },
+          {
+            "src": "/images/activities/dragon-boat/03-part03.webp",
+            "width": 1400,
+            "height": 3022
+          }
+        ]
+      },
+      {
+        "id": "dragon-boat-04",
+        "originalName": "7274fb1f5255d770449a59c81d87b015.png",
+        "kind": "image",
+        "thumb": "/images/activities/dragon-boat/04-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/dragon-boat/04.webp",
+            "width": 2000,
+            "height": 2000
+          }
+        ]
+      },
+      {
+        "id": "dragon-boat-05",
+        "originalName": "84cadd5d2367771dc6fa9af603abd29.jpg",
+        "kind": "image",
+        "thumb": "/images/activities/dragon-boat/05-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/dragon-boat/05.webp",
+            "width": 1500,
+            "height": 2000
+          }
+        ]
+      },
+      {
+        "id": "dragon-boat-06",
+        "originalName": "8a54bfcf1afa85ca09e03140f96d0fe.jpg",
+        "kind": "image",
+        "thumb": "/images/activities/dragon-boat/06-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/dragon-boat/06.webp",
+            "width": 2000,
+            "height": 1500
+          }
+        ]
+      },
+      {
+        "id": "dragon-boat-07",
+        "originalName": "c5c60d9d07ade42bb3918ea19e212bc.jpg",
+        "kind": "image",
+        "thumb": "/images/activities/dragon-boat/07-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/dragon-boat/07.webp",
+            "width": 1500,
+            "height": 2000
+          }
+        ]
+      }
+    ]
+  },
+  "mid-autumn": {
+    "group": "中秋",
+    "cover": "/images/activities/mid-autumn/05-cover.webp",
+    "images": [
+      {
+        "id": "mid-autumn-01",
+        "originalName": "1111.png",
+        "kind": "image",
+        "thumb": "/images/activities/mid-autumn/01-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/mid-autumn/01.webp",
+            "width": 1125,
+            "height": 2000
+          }
+        ]
+      },
+      {
+        "id": "mid-autumn-02",
+        "originalName": "202509231518562144.jpg",
+        "kind": "long",
+        "thumb": "/images/activities/mid-autumn/02-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/mid-autumn/02-part01.webp",
+            "width": 1080,
+            "height": 3378
+          },
+          {
+            "src": "/images/activities/mid-autumn/02-part02.webp",
+            "width": 1080,
+            "height": 3378
+          },
+          {
+            "src": "/images/activities/mid-autumn/02-part03.webp",
+            "width": 1080,
+            "height": 3378
+          }
+        ]
+      },
+      {
+        "id": "mid-autumn-03",
+        "originalName": "202509261946049085.png",
+        "kind": "long",
+        "thumb": "/images/activities/mid-autumn/03-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/mid-autumn/03-part01.webp",
+            "width": 1400,
+            "height": 3938
+          },
+          {
+            "src": "/images/activities/mid-autumn/03-part02.webp",
+            "width": 1400,
+            "height": 3937
+          }
+        ]
+      },
+      {
+        "id": "mid-autumn-04",
+        "originalName": "IMG_5675.JPG",
+        "kind": "image",
+        "thumb": "/images/activities/mid-autumn/04-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/mid-autumn/04.webp",
+            "width": 1500,
+            "height": 2000
+          }
+        ]
+      },
+      {
+        "id": "mid-autumn-05",
+        "originalName": "IMG_5678.JPG",
+        "kind": "image",
+        "thumb": "/images/activities/mid-autumn/05-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/mid-autumn/05.webp",
+            "width": 2000,
+            "height": 1392
+          }
+        ]
+      }
+    ]
+  },
+  "programmer-day": {
+    "group": "1024程序员节",
+    "cover": "/images/activities/programmer-day/02-cover.webp",
+    "images": [
+      {
+        "id": "programmer-day-01",
+        "originalName": "202510242150235648.jpg",
+        "kind": "long",
+        "thumb": "/images/activities/programmer-day/01-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/programmer-day/01-part01.webp",
+            "width": 1400,
+            "height": 3646
+          },
+          {
+            "src": "/images/activities/programmer-day/01-part02.webp",
+            "width": 1400,
+            "height": 3646
+          },
+          {
+            "src": "/images/activities/programmer-day/01-part03.webp",
+            "width": 1400,
+            "height": 3646
+          },
+          {
+            "src": "/images/activities/programmer-day/01-part04.webp",
+            "width": 1400,
+            "height": 3644
+          }
+        ]
+      },
+      {
+        "id": "programmer-day-02",
+        "originalName": "IMG_6175.HEIC.JPG",
+        "kind": "image",
+        "thumb": "/images/activities/programmer-day/02-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/programmer-day/02.webp",
+            "width": 2000,
+            "height": 1500
+          }
+        ]
+      },
+      {
+        "id": "programmer-day-03",
+        "originalName": "IMG_6860.JPG",
+        "kind": "long",
+        "thumb": "/images/activities/programmer-day/03-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/programmer-day/03.webp",
+            "width": 1024,
+            "height": 2880
+          }
+        ]
+      },
+      {
+        "id": "programmer-day-04",
+        "originalName": "终图.png",
+        "kind": "long",
+        "thumb": "/images/activities/programmer-day/04-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/programmer-day/04-part01.webp",
+            "width": 1400,
+            "height": 3500
+          },
+          {
+            "src": "/images/activities/programmer-day/04-part02.webp",
+            "width": 1400,
+            "height": 3500
+          }
+        ]
+      }
+    ]
+  },
+  "christmas": {
+    "group": "圣诞",
+    "cover": "/images/activities/christmas/02-cover.webp",
+    "images": [
+      {
+        "id": "christmas-01",
+        "originalName": "202512261236164709.png",
+        "kind": "long",
+        "thumb": "/images/activities/christmas/01-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/christmas/01-part01.webp",
+            "width": 900,
+            "height": 3898
+          },
+          {
+            "src": "/images/activities/christmas/01-part02.webp",
+            "width": 900,
+            "height": 3898
+          },
+          {
+            "src": "/images/activities/christmas/01-part03.webp",
+            "width": 900,
+            "height": 3898
+          }
+        ]
+      },
+      {
+        "id": "christmas-02",
+        "originalName": "iwEeAqNqcGcDAQTRD8AF0QvQBrBG_oqTPNje5QkmupfZNKIAB9IHCPsECAAJomltCgAL0gAmQu8.jpg",
+        "kind": "image",
+        "thumb": "/images/activities/christmas/02-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/christmas/02.webp",
+            "width": 2000,
+            "height": 1500
+          }
+        ]
+      },
+      {
+        "id": "christmas-03",
+        "originalName": "lQLPJw1fL6Nv81vNCIfNDA-wzq6YAxDtSzsJIOD5YNXNAA_3087_2183.png",
+        "kind": "image",
+        "thumb": "/images/activities/christmas/03-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/christmas/03.webp",
+            "width": 2000,
+            "height": 1414
+          }
+        ]
+      }
+    ]
+  },
+  "kickoff": {
+    "group": "开工大吉",
+    "cover": "/images/activities/kickoff/02-cover.webp",
+    "images": [
+      {
+        "id": "kickoff-01",
+        "originalName": "lQDPJxN9ViQC3knNC9DND8Cwe16YLeDJpAIJdTYycorLAg_4032_3024.jpg",
+        "kind": "image",
+        "thumb": "/images/activities/kickoff/01-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/kickoff/01.webp",
+            "width": 2000,
+            "height": 1500
+          }
+        ]
+      },
+      {
+        "id": "kickoff-02",
+        "originalName": "lQDPJxbccmvnLknNC9DND8Cw27TrFCs--X8JdTYycorLAA_4032_3024.jpg",
+        "kind": "image",
+        "thumb": "/images/activities/kickoff/02-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/kickoff/02.webp",
+            "width": 2000,
+            "height": 1500
+          }
+        ]
+      },
+      {
+        "id": "kickoff-03",
+        "originalName": "lQDPKHWo3QGrfknNCNzNCNywqy3OkarOqcoJdTYycorLAQ_2268_2268.jpg",
+        "kind": "image",
+        "thumb": "/images/activities/kickoff/03-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/kickoff/03.webp",
+            "width": 2000,
+            "height": 2000
+          }
+        ]
+      }
+    ]
+  },
+  "new-year-tea": {
+    "group": "春节放假前下午茶",
+    "cover": "/images/activities/new-year-tea/02-cover.webp",
+    "images": [
+      {
+        "id": "new-year-tea-01",
+        "originalName": "2c5d3e9fe8c126f4a897a3174772dd7.jpg",
+        "kind": "image",
+        "thumb": "/images/activities/new-year-tea/01-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/new-year-tea/01.webp",
+            "width": 1621,
+            "height": 2000
+          }
+        ]
+      },
+      {
+        "id": "new-year-tea-02",
+        "originalName": "d2c6794b3ebbc6e85c93ed2db1a36e9.jpg",
+        "kind": "image",
+        "thumb": "/images/activities/new-year-tea/02-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/new-year-tea/02.webp",
+            "width": 2000,
+            "height": 1500
+          }
+        ]
+      }
+    ]
+  },
+  "summer": {
+    "group": "夏日雪糕",
+    "cover": "/images/activities/summer/01-cover.webp",
+    "images": [
+      {
+        "id": "summer-01",
+        "originalName": "4dac41ae6e01c7af76e061bf4e3f7a3f.png",
+        "kind": "image",
+        "thumb": "/images/activities/summer/01-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/summer/01.webp",
+            "width": 1333,
+            "height": 2000
+          }
+        ]
+      }
+    ]
+  },
+  "qingming": {
+    "group": "清明",
+    "cover": "/images/activities/qingming/01-cover.webp",
+    "images": [
+      {
+        "id": "qingming-01",
+        "originalName": "iwEcAqNwbmcDAQTRBYYF0QfQBrBS1WQb16xpMgml-2k_hPsAB9Io4AMwCAAJomltCgAL0gAOd4M.png",
+        "kind": "image",
+        "thumb": "/images/activities/qingming/01-cover.webp",
+        "parts": [
+          {
+            "src": "/images/activities/qingming/01.webp",
+            "width": 1414,
+            "height": 2000
+          }
+        ]
+      }
+    ]
+  }
+}
