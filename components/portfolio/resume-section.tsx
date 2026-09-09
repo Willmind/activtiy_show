@@ -42,8 +42,8 @@ export function ResumeSection() {
           </div>
           <a
             className="text-link resume-download"
-            href="/resume/zeng-huiyi-resume.pdf"
-            download="曾慧仪-行政专员简历.pdf"
+            href="/resume/zeng-huiyi-resume.pdf?v=c417452a09c2"
+            download="应聘行政专员_曾慧仪的简历.pdf"
           >
             <Download size={16} />
             下载完整简历
@@ -194,8 +194,8 @@ export function ResumeSection() {
             </a>
             <a
               className="text-link"
-              href="/resume/zeng-huiyi-resume.pdf"
-              download="曾慧仪-行政专员简历.pdf"
+              href="/resume/zeng-huiyi-resume.pdf?v=c417452a09c2"
+              download="应聘行政专员_曾慧仪的简历.pdf"
             >
               <Download size={16} />
               下载简历 PDF
