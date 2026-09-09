@@ -18,7 +18,9 @@ npm exec tsc -- --noEmit
 npm run build
 ```
 
-项目使用 React、Vinext 与 Tailwind CSS。`vite.config.ts` 中的 `vinext({ nextConfig })` 配置静态导出，发布文件位于 `dist/client/`，可由静态托管服务提供访问。Sites 发布配置位于 `.openai/hosting.json`。当前资源和导航以站点根路径为基础；如改用 GitHub Pages 项目子路径，需要统一配置前缀后重新构建。
+项目使用 React、Vinext 与 Tailwind CSS。`vite.config.ts` 中的 `vinext({ nextConfig })` 配置静态导出，发布文件位于 `dist/client/`，可由静态托管服务提供访问。Sites 发布配置位于 `.openai/hosting.json`。GitHub Pages 自动发布流程位于 `.github/workflows/github-pages.yml`，通过 `NEXT_PUBLIC_BASE_PATH` 配置仓库路径；普通构建仍使用根路径。
+
+GitHub Pages 使用 `npm run build:github-pages`，额外生成活动目录的 `index.html`，支持直接打开和刷新详情页。仓库 Settings → Pages → Source 选择 **GitHub Actions**。推送 `main` 后自动发布，成功后的地址为 `https://willmind.github.io/activtiy_show/`。该免费网址的国内连通性需要用实际手机网络测试。
 
 国内访问的域名、托管及上传步骤见 [国内访问部署](docs/国内访问部署.md)。Git 集成项目使用 `Other` 框架预设，根目录 `edgeone.json` 指定 `dist/client` 为输出目录并配置活动路由。也可使用 `scripts/package_edgeone.py` 将构建结果打包为可直接上传的 ZIP。
 

@@ -45,6 +45,7 @@ export default defineConfig(async () => {
   const { cloudflare } = await import('@cloudflare/vite-plugin');
 
   return {
+    base: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/`,
     css: { postcss: { plugins: [tailwindcss()] } },
     server: isCodexSeatbeltSandbox
       ? { watch: { useFsEvents: false, usePolling: true } }
@@ -55,6 +56,10 @@ export default defineConfig(async () => {
       vinext({
         nextConfig: {
           output: 'export',
+          // Vinext beta.5 prerenders from the root even with basePath set.
+          // Native links use sitePath(); prefix built assets without changing
+          // the server routes used during static export.
+          assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH ?? '',
           trailingSlash: false,
           images: { unoptimized: true },
         },

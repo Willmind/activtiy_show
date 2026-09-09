@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { sitePath } from '@/lib/site-path';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -20,16 +21,20 @@ export default function RootLayout({
         </a>
         <header className="site-header">
           <div className="shell header-inner">
-            <a className="brand" href="/" aria-label="曾慧仪，返回首页">
+            <a
+              className="brand"
+              href={sitePath('/')}
+              aria-label="曾慧仪，返回首页"
+            >
               <span className="brand-mark" aria-hidden="true">
                 慧
               </span>
               曾慧仪<small>行政活动作品集</small>
             </a>
             <nav className="site-nav" aria-label="主导航">
-              <a href="/#activities">活动作品</a>
-              <a href="/#about">关于我</a>
-              <a className="nav-contact" href="/#contact">
+              <a href={sitePath('/#activities')}>活动作品</a>
+              <a href={sitePath('/#about')}>关于我</a>
+              <a className="nav-contact" href={sitePath('/#contact')}>
                 联系我 ↗
               </a>
             </nav>

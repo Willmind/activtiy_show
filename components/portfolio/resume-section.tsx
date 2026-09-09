@@ -7,6 +7,7 @@ import {
   Building2,
   ClipboardList,
 } from 'lucide-react';
+import { sitePath } from '@/lib/site-path';
 
 const capabilities = [
   {
@@ -42,7 +43,7 @@ export function ResumeSection() {
           </div>
           <a
             className="text-link resume-download"
-            href="/resume/zeng-huiyi-resume.pdf?v=c417452a09c2"
+            href={sitePath('/resume/zeng-huiyi-resume.pdf?v=c417452a09c2')}
             download="应聘行政专员_曾慧仪的简历.pdf"
           >
             <Download size={16} />
@@ -53,7 +54,7 @@ export function ResumeSection() {
           <div className="profile-panel">
             <div className="profile-heading">
               <img
-                src="/images/portrait.webp"
+                src={sitePath('/images/portrait.webp')}
                 width="88"
                 height="88"
                 alt="曾慧仪"
@@ -194,7 +195,7 @@ export function ResumeSection() {
             </a>
             <a
               className="text-link"
-              href="/resume/zeng-huiyi-resume.pdf?v=c417452a09c2"
+              href={sitePath('/resume/zeng-huiyi-resume.pdf?v=c417452a09c2')}
               download="应聘行政专员_曾慧仪的简历.pdf"
             >
               <Download size={16} />

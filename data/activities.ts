@@ -1,4 +1,5 @@
 import imageData from './images.json';
+import { sitePath } from '@/lib/site-path';
 
 export type ImagePart = { src: string; width: number; height: number };
 export type ActivityImage = {
@@ -207,9 +208,11 @@ const images = imageData as Record<
 >;
 export const activities: Activity[] = content.map(({ labels, ...item }) => ({
   ...item,
-  cover: images[item.slug].cover,
+  cover: sitePath(images[item.slug].cover),
   images: images[item.slug].images.map((image, index) => ({
     ...image,
+    thumb: sitePath(image.thumb),
+    parts: image.parts.map((part) => ({ ...part, src: sitePath(part.src) })),
     label: labels[index],
   })),
 }));

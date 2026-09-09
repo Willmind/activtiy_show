@@ -2,6 +2,7 @@ import { ActivityGrid } from '@/components/portfolio/activity-grid';
 import { ResumeSection } from '@/components/portfolio/resume-section';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import { activities } from '@/data/activities';
+import { sitePath } from '@/lib/site-path';
 
 export default function Home() {
   return (
@@ -35,7 +36,7 @@ export default function Home() {
             </span>
             <img
               className="hero-photo"
-              src="/images/activities/mid-autumn/05-cover.webp"
+              src={sitePath('/images/activities/mid-autumn/05-cover.webp')}
               width="960"
               height="720"
               alt="中秋国庆双节活动的主题布置与节日礼篮"
@@ -43,7 +44,7 @@ export default function Home() {
             />
             <img
               className="hero-photo-secondary"
-              src="/images/activities/qixi/02-cover.webp"
+              src={sitePath('/images/activities/qixi/02-cover.webp')}
               width="960"
               height="720"
               alt="七夕粉色主题福利与现场布置"
