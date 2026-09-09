@@ -50,7 +50,15 @@ export default defineConfig(async () => {
       ? { watch: { useFsEvents: false, usePolling: true } }
       : undefined,
     plugins: [
-      vinext(),
+      // Keep Vinext's export settings here so static hosts do not mistake this
+      // project for Next.js and inject an incompatible server build adapter.
+      vinext({
+        nextConfig: {
+          output: 'export',
+          trailingSlash: false,
+          images: { unoptimized: true },
+        },
+      }),
       sites(),
       cloudflare({
         viteEnvironment: { name: 'rsc', childEnvironments: ['ssr'] },
