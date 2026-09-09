@@ -2,11 +2,13 @@ import imageData from './images.json';
 import { sitePath } from '@/lib/site-path';
 
 export type ImagePart = { src: string; width: number; height: number };
+type ImageSource = { src: string; width: number };
 export type ActivityImage = {
   id: string;
   originalName: string;
   kind: string;
   thumb: string;
+  thumbSrcSet: string;
   parts: ImagePart[];
   label: string;
 };
@@ -19,6 +21,7 @@ export type Activity = {
   tags: string[];
   points: { title: string; text: string }[];
   cover: string;
+  coverSrcSet: string;
   images: ActivityImage[];
   accent: string;
 };
@@ -204,14 +207,24 @@ const content = [
 ];
 const images = imageData as Record<
   string,
-  { cover: string; images: Omit<ActivityImage, 'label'>[] }
+  {
+    cover: string;
+    coverSources: ImageSource[];
+    images: (Omit<ActivityImage, 'label' | 'thumbSrcSet'> & {
+      thumbSources: ImageSource[];
+    })[];
+  }
 >;
+const sourceSet = (sources: ImageSource[]) =>
+  sources.map(({ src, width }) => `${sitePath(src)} ${width}w`).join(', ');
 export const activities: Activity[] = content.map(({ labels, ...item }) => ({
   ...item,
   cover: sitePath(images[item.slug].cover),
-  images: images[item.slug].images.map((image, index) => ({
+  coverSrcSet: sourceSet(images[item.slug].coverSources),
+  images: images[item.slug].images.map(({ thumbSources, ...image }, index) => ({
     ...image,
     thumb: sitePath(image.thumb),
+    thumbSrcSet: sourceSet(thumbSources),
     parts: image.parts.map((part) => ({ ...part, src: sitePath(part.src) })),
     label: labels[index],
   })),

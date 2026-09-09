@@ -53,6 +53,8 @@ export default async function ActivityPage({
         <div className="detail-cover" style={{ background: activity.accent }}>
           <img
             src={activity.cover}
+            srcSet={activity.coverSrcSet}
+            sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1000px) calc(100vw - 56px), (max-width: 1296px) calc(100vw - 96px), 1200px"
             width="960"
             height="720"
             alt={activity.title}

@@ -13,6 +13,7 @@ import argparse
 parser = argparse.ArgumentParser(description='Convert categorized originals to WebP and generate portfolio assets.')
 parser.add_argument('source', nargs='?', type=Path, default=Path(__file__).resolve().parents[1])
 parser.add_argument('--site-output', type=Path)
+parser.add_argument('--site-only', action='store_true', help='Regenerate website assets without rewriting the full-resolution archive.')
 args = parser.parse_args()
 ROOT = args.source.resolve()
 SITE = args.site_output.resolve() if args.site_output else ROOT / 'website'
@@ -84,21 +85,31 @@ def main():
                 suffix = f'-part{part:02d}' if len(web_parts)>1 else ''
                 name = f'{i:02d}{suffix}.webp'
                 target = PUBLIC / slug / name
-                save(section,target,92 if is_long else 88)
+                save(section,target,86 if is_long else 82)
                 assets.append({'src':f'/images/activities/{slug}/{name}','width':section.width,'height':section.height})
             thumb=image.copy()
             if is_long:
                 thumb=thumb.crop((0,0,thumb.width,min(thumb.height,round(thumb.width*1.2))))
             thumb=ImageOps.fit(thumb,(960,720),Image.Resampling.LANCZOS,centering=(0.5,0.45))
             thumb_name=f'{i:02d}-cover.webp'
-            save(thumb,PUBLIC/slug/thumb_name,85)
-            records.append({'id':f'{slug}-{i:02d}','originalName':path.name,'kind':'long' if is_long else 'image','thumb':f'/images/activities/{slug}/{thumb_name}','parts':assets})
+            save(thumb,PUBLIC/slug/thumb_name,78)
+            thumb_sources = []
+            for width in (480, 768, 960):
+                name = thumb_name if width == 960 else f'{i:02d}-cover-{width}.webp'
+                if width != 960:
+                    small = thumb.resize((width, width * 3 // 4), Image.Resampling.LANCZOS)
+                    save(small, PUBLIC/slug/name, 76)
+                thumb_sources.append({'src':f'/images/activities/{slug}/{name}', 'width':width})
+            records.append({'id':f'{slug}-{i:02d}','originalName':path.name,'kind':'long' if is_long else 'image','thumb':f'/images/activities/{slug}/{thumb_name}','thumbSources':thumb_sources,'parts':assets})
         if group in ARCHIVE_ONLY_GROUPS:
             continue
-        manifest[slug]={'group':group,'cover':records[cover_index-1]['thumb'],'images':records}
+        manifest[slug]={'group':group,'cover':records[cover_index-1]['thumb'],'coverSources':records[cover_index-1]['thumbSources'],'images':records}
         print(f'Website assets ready: {group}',flush=True)
     DATA.mkdir(parents=True,exist_ok=True)
     (DATA/'images.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
+    if args.site_only:
+        print(json.dumps({'websiteAssetBytes':sum(p.stat().st_size for p in PUBLIC.rglob('*.webp')), 'archiveChanged':False},ensure_ascii=False),flush=True)
+        return
     for group,path in originals:
         image=normalized(path)
         # WebP cannot exceed 16383 pixels on either axis. Split the only oversized
