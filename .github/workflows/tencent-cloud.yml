@@ -1,0 +1,53 @@
+name: 发布活动作品集到腾讯云
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tencent-cloud-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main' && vars.LIGHTHOUSE_DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: 获取代码
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: 设置 Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+      - name: 检查部署凭据
+        env:
+          LIGHTHOUSE_SSH_KEY: ${{ secrets.LIGHTHOUSE_SSH_KEY }}
+          LIGHTHOUSE_KNOWN_HOSTS: ${{ secrets.LIGHTHOUSE_KNOWN_HOSTS }}
+        run: |
+          test -n "$LIGHTHOUSE_SSH_KEY" || { echo '缺少 LIGHTHOUSE_SSH_KEY'; exit 1; }
+          test -n "$LIGHTHOUSE_KNOWN_HOSTS" || { echo '缺少 LIGHTHOUSE_KNOWN_HOSTS'; exit 1; }
+      - name: 安装依赖
+        run: npm ci
+      - name: 验证发布与回退逻辑
+        run: python3 -m unittest discover -s scripts -p 'test_lighthouse_activate.py' -v
+      - name: 构建域名根目录版本
+        env:
+          NEXT_PUBLIC_BASE_PATH: ''
+        run: npm run build:github-pages
+      - name: 验证与打包静态网站
+        run: python3 scripts/package_lighthouse.py "$RUNNER_TEMP/huiyi-site.tar.gz"
+      - name: 上传并切换网站版本
+        env:
+          LIGHTHOUSE_HOST: ${{ vars.LIGHTHOUSE_HOST || '129.204.51.116' }}
+          LIGHTHOUSE_USER: huiyi-deploy
+          LIGHTHOUSE_SSH_KEY: ${{ secrets.LIGHTHOUSE_SSH_KEY }}
+          LIGHTHOUSE_KNOWN_HOSTS: ${{ secrets.LIGHTHOUSE_KNOWN_HOSTS }}
+        run: bash scripts/deploy_lighthouse.sh
