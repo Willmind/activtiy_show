@@ -24,6 +24,8 @@ GitHub Pages 使用 `npm run build:github-pages`，额外生成活动目录的 `
 
 国内访问的域名、托管及上传步骤见 [国内访问部署](docs/国内访问部署.md)。Git 集成项目使用 `Other` 框架预设，根目录 `edgeone.json` 指定 `dist/client` 为输出目录并配置活动路由。也可使用 `scripts/package_edgeone.py` 将构建结果打包为可直接上传的 ZIP。
 
+腾讯云轻量服务器的 GitHub 自动发布见 [腾讯云自动部署](docs/腾讯云自动部署.md)。完成专用 SSH 账号、仓库 Secrets 和启用变量后，推送 `main` 会自动构建、上传并切换版本；发布检查失败时恢复上一版。该工作流只更新静态文件，不改变备案期间的内部访问设置。
+
 ## 导出离线 HTML
 
 使用普通根路径构建，不设置 `NEXT_PUBLIC_BASE_PATH`：
