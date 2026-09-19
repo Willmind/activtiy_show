@@ -1,5 +1,6 @@
 'use client';
-import { useRef, useState } from 'react';
+/* oxlint-disable jsx-a11y/no-noninteractive-tabindex -- The image scroll region needs keyboard focus so long images can be read with arrow/PageDown keys. */
+import { useLayoutEffect, useRef, useState } from 'react';
 import {
   ChevronLeft,
   ChevronRight,
@@ -28,12 +29,19 @@ export function ImageGallery({
   const [active, setActive] = useState<number | null>(null);
   const [zoomed, setZoomed] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const restoreScrollFocus = useRef(false);
   const selected = active === null ? null : images[active];
+  useLayoutEffect(() => {
+    if (restoreScrollFocus.current) {
+      scrollRef.current?.focus({ preventScroll: true });
+      restoreScrollFocus.current = false;
+    }
+  }, [active]);
   function change(delta: number) {
     if (active === null) return;
+    restoreScrollFocus.current = document.activeElement === scrollRef.current;
     setActive((active + delta + images.length) % images.length);
     setZoomed(false);
-    scrollRef.current?.scrollTo({ top: 0, left: 0 });
   }
   return (
     <>
@@ -53,7 +61,7 @@ export function ImageGallery({
               <img
                 src={image.thumb}
                 srcSet={image.thumbSrcSet}
-                sizes={cardImageSizes}
+                sizes={`auto, ${cardImageSizes}`}
                 width="960"
                 height="720"
                 alt={image.label}
@@ -120,7 +128,10 @@ export function ImageGallery({
               </DialogClose>
             </div>
           </div>
+          {/* The scroll region must be focusable for keyboard reading of long images. */}
           <div
+            // A new scroll container also cancels any pending native PageDown animation.
+            key={selected?.id}
             ref={scrollRef}
             className={`viewer-scroll ${zoomed ? 'is-zoomed' : ''}`}
             tabIndex={0}

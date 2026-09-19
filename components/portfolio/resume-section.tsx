@@ -8,6 +8,7 @@ import {
   ClipboardList,
 } from 'lucide-react';
 import { sitePath } from '@/lib/site-path';
+import { profile } from '@/data/profile';
 
 const capabilities = [
   {
@@ -39,12 +40,16 @@ export function ResumeSection() {
         <div className="section-heading">
           <div>
             <span className="section-number">02 / ABOUT ME</span>
-            <h2>做细每一件事，接住每一份信任。</h2>
+            <h2>
+              活动之外，
+              <br />
+              也把日常做好。
+            </h2>
           </div>
           <a
             className="text-link resume-download"
-            href={sitePath('/resume/zeng-huiyi-resume.pdf?v=c417452a09c2')}
-            download="应聘行政专员_曾慧仪的简历.pdf"
+            href={profile.resumeUrl}
+            download={profile.resumeFilename}
           >
             <Download size={16} />
             下载完整简历
@@ -66,7 +71,7 @@ export function ResumeSection() {
               </div>
             </div>
             <p className="profile-copy">
-              5
+              {profile.experienceYears}
               年行政工作经验，关注活动体验，也重视背后的预算、流程与执行。擅长费用分析、供应商协调与行政标准化，让日常运营更顺畅。
             </p>
             <div className="profile-facts">
@@ -74,15 +79,15 @@ export function ResumeSection() {
                 求职方向<b>行政专员</b>
               </span>
               <span>
-                到岗时间<b>随时到岗</b>
+                到岗时间<b>{profile.availability}</b>
               </span>
               <span>
                 教育背景<b>工商企业管理 · 大专</b>
               </span>
             </div>
-            <a className="profile-email" href="mailto:zhy01161213@163.com">
+            <a className="profile-email" href={`mailto:${profile.email}`}>
               <Mail size={17} />
-              zhy01161213@163.com
+              {profile.email}
               <ArrowUpRight size={16} />
             </a>
           </div>
@@ -129,7 +134,7 @@ export function ResumeSection() {
       <section className="experience-section shell">
         <div className="experience-heading">
           <span className="section-number">EXPERIENCE & EDUCATION</span>
-          <h2>经历，积累在每一次落实里。</h2>
+          <h2>工作经历与教育</h2>
         </div>
         <div className="timeline">
           <article className="timeline-row">
@@ -189,14 +194,14 @@ export function ResumeSection() {
             <p>欢迎就行政专员岗位与我联系。</p>
           </div>
           <div className="contact-actions">
-            <a className="contact-email" href="mailto:zhy01161213@163.com">
-              zhy01161213@163.com
+            <a className="contact-email" href={`mailto:${profile.email}`}>
+              {profile.email}
               <ArrowUpRight size={25} />
             </a>
             <a
               className="text-link"
-              href={sitePath('/resume/zeng-huiyi-resume.pdf?v=c417452a09c2')}
-              download="应聘行政专员_曾慧仪的简历.pdf"
+              href={profile.resumeUrl}
+              download={profile.resumeFilename}
             >
               <Download size={16} />
               下载简历 PDF

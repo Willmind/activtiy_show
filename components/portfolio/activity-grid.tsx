@@ -25,11 +25,12 @@ export function ActivityGrid() {
           <div className="activity-grid">
             {activities
               .filter((a) => category === '全部活动' || a.category === category)
-              .map((activity) => (
+              .map((activity, index) => (
                 <a
                   href={sitePath(`/activities/${activity.slug}`)}
                   className="project-card"
                   data-category={activity.category}
+                  data-lead={index === 0 || undefined}
                   key={activity.slug}
                 >
                   <div
@@ -39,7 +40,7 @@ export function ActivityGrid() {
                     <img
                       src={activity.cover}
                       srcSet={activity.coverSrcSet}
-                      sizes={cardImageSizes}
+                      sizes={`auto, ${cardImageSizes}`}
                       width="960"
                       height="720"
                       alt={activity.title}
@@ -53,17 +54,29 @@ export function ActivityGrid() {
                       <ArrowUpRight size={23} />
                     </span>
                   </div>
-                  <div className="project-meta">
-                    <span>{activity.category}</span>
-                    <span>
-                      {String(activities.indexOf(activity) + 1).padStart(
-                        2,
-                        '0',
-                      )}
+                  <div className="project-copy">
+                    <div className="project-meta">
+                      <span>{activity.category}</span>
+                      <span>
+                        {String(activities.indexOf(activity) + 1).padStart(
+                          2,
+                          '0',
+                        )}
+                      </span>
+                    </div>
+                    <h3>
+                      <span className="project-event">
+                        {activity.title.split(' · ')[0]}
+                      </span>
+                      <span className="project-title">
+                        {activity.title.split(' · ')[1]}
+                      </span>
+                    </h3>
+                    <p>{activity.subtitle}</p>
+                    <span className="project-view">
+                      查看活动 <ArrowUpRight size={17} />
                     </span>
                   </div>
-                  <h3>{activity.title}</h3>
-                  <p>{activity.subtitle}</p>
                 </a>
               ))}
           </div>

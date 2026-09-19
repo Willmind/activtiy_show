@@ -1,4 +1,27 @@
 (() => {
+  // Use the same prerendered slides and images as the online version.
+  const moments = Array.from(document.querySelectorAll('[data-moment-index]'));
+  const momentChoices = Array.from(
+    document.querySelectorAll('.moment-choices button'),
+  );
+  let selectedMoment = 0;
+  function selectMoment(index) {
+    selectedMoment = (index + moments.length) % moments.length;
+    moments.forEach((moment, i) => {
+      moment.hidden = i !== selectedMoment;
+    });
+    momentChoices.forEach((button, i) =>
+      button.setAttribute('aria-pressed', String(i === selectedMoment)),
+    );
+  }
+  momentChoices.forEach((button, i) =>
+    button.addEventListener('click', () => selectMoment(i)),
+  );
+  document.querySelectorAll('[data-moment-direction]').forEach((button) => {
+    button.addEventListener('click', () =>
+      selectMoment(selectedMoment + Number(button.dataset.momentDirection)),
+    );
+  });
   const tabs = Array.from(document.querySelectorAll('.activity-tab'));
   const cards = Array.from(
     document.querySelectorAll('.activity-grid .project-card'),
@@ -18,8 +41,11 @@
       if (panel) tab.setAttribute('aria-controls', panel.id);
     });
     if (panel) panel.setAttribute('aria-labelledby', selected.id);
+    let leadAssigned = false;
     cards.forEach((card) => {
       card.hidden = index !== 0 && card.dataset.category !== category;
+      card.toggleAttribute('data-lead', !card.hidden && !leadAssigned);
+      if (!card.hidden) leadAssigned = true;
     });
     if (focus) selected.focus();
   }
@@ -59,7 +85,7 @@
     <div class="viewer-scroll" tabindex="0" aria-label="图片内容，可滚动查看"><div class="viewer-image-stack"></div></div>
     <div class="viewer-footer"><button type="button" data-action="previous">← 上一张</button><span>← → 切换 · Esc 关闭</span><button type="button" data-action="next">下一张 →</button></div>`;
   document.body.append(dialog);
-  const scroll = dialog.querySelector('.viewer-scroll');
+  let scroll = dialog.querySelector('.viewer-scroll');
   const stack = dialog.querySelector('.viewer-image-stack');
   const zoomButton = dialog.querySelector('[data-action="zoom"]');
   let current = 0;
@@ -99,7 +125,13 @@
     );
     dialog.querySelector('.viewer-footer').hidden = images.length < 2;
     setZoom(false);
-    scroll.scrollTo(0, 0);
+    // Recreate the scroll container to cancel pending native keyboard scrolling.
+    const restoreFocus = document.activeElement === scroll;
+    const nextScroll = scroll.cloneNode(false);
+    nextScroll.append(stack);
+    scroll.replaceWith(nextScroll);
+    scroll = nextScroll;
+    if (restoreFocus) scroll.focus({ preventScroll: true });
   }
   buttons.forEach((button, index) =>
     button.addEventListener('click', () => {

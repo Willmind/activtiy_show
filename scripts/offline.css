@@ -10,8 +10,8 @@
   max-width: none;
   height: calc(100dvh - 40px);
   max-height: none;
-  color: #1e2c3a;
-  background: #fff;
+  color: #f5f7fa;
+  background: #101720;
   box-shadow: 0 24px 80px #0008;
 }
 .offline-viewer[open] {
@@ -31,6 +31,16 @@
 }
 .offline-viewer .viewer-icon {
   font-size: 28px;
+}
+.offline-viewer .viewer-title {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.offline-viewer .viewer-description {
+  margin: 5px 0 0;
+  font-size: 12px;
+  color: #a8b5c5;
 }
 .offline-viewer .viewer-footer button {
   cursor: pointer;
