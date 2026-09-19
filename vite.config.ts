@@ -47,6 +47,22 @@ export default defineConfig(async () => {
   return {
     base: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/`,
     css: { postcss: { plugins: [tailwindcss()] } },
+    environments: {
+      client: {
+        optimizeDeps: {
+          // Prebundle the homepage and gallery together so the first detail
+          // visit does not reload React while a dialog is being hydrated.
+          include: [
+            '@base-ui/react/button',
+            '@base-ui/react/dialog',
+            '@base-ui/react/tabs',
+            'class-variance-authority',
+            'clsx',
+            'tailwind-merge',
+          ],
+        },
+      },
+    },
     server: isCodexSeatbeltSandbox
       ? { watch: { useFsEvents: false, usePolling: true } }
       : undefined,

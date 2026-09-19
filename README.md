@@ -1,6 +1,8 @@
 # 曾慧仪 · 行政活动作品集
 
-面向行政专员求职的中文作品集。包含 8 类活动、22 张活动素材、独立活动详情、分类浏览、完整长图阅读、图片放大切换、工作经历及简历 PDF 下载。
+面向行政专员求职的中文作品集。包含 8 组活动、22 张活动素材、独立活动详情、分类浏览、完整长图阅读、图片放大切换、工作经历及简历 PDF 下载。
+
+正式网站采用统一的明亮风格：白色背景、深色文字、暖陶色标题与活动照片。顶部提供简历下载，不再向访客提供主题切换。首页顺序为个人定位、精选现场、活动作品、行政能力、工作经历、联系方式。
 
 公开网站：https://willmind.github.io/activtiy_show/
 
@@ -35,7 +37,7 @@ npm run build
 python3 scripts/export_offline.py outputs/曾慧仪_活动作品集_离线HTML.zip
 ```
 
-脚本生成 ZIP 和同名解压目录。完整解压后，在电脑浏览器中打开 `index.html`，即可离线查看分类、活动详情、放大及切换图片，并打开或下载简历 PDF。分享时发送整个 ZIP，不能只发送首页文件。手机压缩包预览器可能不执行网页脚本，建议使用电脑浏览器。
+脚本生成 ZIP 和同名解压目录。完整解压后，在电脑浏览器中打开 `index.html`，即可离线切换精选现场、查看分类、活动详情、放大及切换图片，并打开或下载简历 PDF。分享时发送整个 ZIP，不能只发送首页文件。手机压缩包预览器可能不执行网页脚本，建议使用电脑浏览器。
 
 导出程序将网页地址改成相对文件路径，并用本地普通 JavaScript 提供分类和图片浏览功能，不依赖服务器、CDN 或 React 运行时。其交互代码和样式位于 `scripts/offline.js`、`scripts/offline.css`。
 
@@ -43,6 +45,7 @@ python3 scripts/export_offline.py outputs/曾慧仪_活动作品集_离线HTML.z
 
 - `data/activities.ts`：活动名称、分类、介绍、展示要点与图片说明。
 - `data/images.json`：自动生成的图片与分段信息。
+- `data/profile.ts`：统一维护简历地址、下载文件名、邮箱、到岗状态及经验年限。
 - `components/portfolio/resume-section.tsx`：工作经历、教育及简历成果。
 - `public/resume/zeng-huiyi-resume.pdf`：用户提供的完整简历。
 - `public/images/activities/`：用于网站展示的 WebP 图片。
@@ -71,4 +74,8 @@ python3 scripts/prepare_images.py '/path/to/活动图片' --site-output '/path/t
 
 ## 发布内容
 
-仓库包含用户提供的活动素材和简历，仅用于作品展示。页面使用本地字体栈，无外部字体或分析脚本依赖。更新简历、邮箱和到岗状态时，请同步修改简历组件及首页状态。
+仓库包含用户提供的活动素材和简历，仅用于作品展示。页面使用本地字体栈，无外部字体或分析脚本依赖。更新简历、邮箱和到岗状态时，修改 `data/profile.ts` 并核对 PDF 内容。
+
+图片已由 `prepare_images.py` 生成 WebP、响应式封面与长图分段，因此静态导出的页面使用原生 `img`、`srcSet`、`sizes` 和懒加载；`.oxlintrc.json` 仅对实际页面及作品集组件关闭要求使用 Next Image 的规则。图片滚动区域保留键盘焦点，方便使用方向键和 PageDown 阅读长图。
+
+项目本轮审核记录见 [项目逻辑与设计审核](docs/项目逻辑与设计审核.md)。

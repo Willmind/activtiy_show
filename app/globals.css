@@ -49,45 +49,35 @@
 }
 
 :root {
-  --background: #fff;
-  --foreground: #182332;
-  --card: #fff;
-  --card-foreground: #182332;
-  --popover: #fff;
-  --popover-foreground: #182332;
-  --primary: #e54c26;
-  --primary-foreground: #fff;
   --secondary: #f1f4f7;
   --secondary-foreground: #182332;
   --muted: #f4f5f7;
   --muted-foreground: #596372;
-  --accent: #fff0e8;
-  --accent-foreground: #be3411;
   --destructive: #b82331;
-  --border: #e2e5e8;
   --input: #d3d8df;
-  --ring: #e54c26;
   --radius: 0.75rem;
-}
-.dark {
-  --background: #15202e;
-  --foreground: #f4f6f8;
-  --card: #1d2b3d;
-  --card-foreground: #f4f6f8;
-  --popover: #1d2b3d;
-  --popover-foreground: #f4f6f8;
-  --primary: #ff8b63;
-  --primary-foreground: #15202e;
-  --secondary: #273649;
-  --secondary-foreground: #f4f6f8;
-  --muted: #273649;
-  --muted-foreground: #b6c2d0;
-  --accent: #3d2d27;
-  --accent-foreground: #ffad8f;
-  --destructive: #ff8b94;
-  --border: #394a5c;
-  --input: #394a5c;
-  --ring: #ff8b63;
+  --background: #fff;
+  --foreground: #1d1d1f;
+  --card: #fff;
+  --card-foreground: #1d1d1f;
+  --popover: #fff;
+  --popover-foreground: #1d1d1f;
+  --primary: #1d1d1f;
+  --primary-foreground: #fff;
+  --ring: #0071e3;
+  --accent: #e8eff8;
+  --accent-foreground: #1d1d1f;
+  --border: #e4e4e7;
+  --folio-soft: #f5f5f7;
+  --folio-panel: #f5f5f7;
+  --folio-muted: #66666c;
+  --folio-accent: #0066cc;
+  --folio-button: #1d1d1f;
+  --folio-button-text: #fff;
+  --folio-contact: #f5f5f7;
+  --folio-inverse: #1d1d1f;
+  --folio-inverse-muted: #a8a8ae;
+  --folio-radius: 24px;
 }
 * {
   box-sizing: border-box;
@@ -1158,8 +1148,8 @@ img {
 .viewer-icon {
   display: grid;
   place-items: center;
-  width: 39px;
-  height: 39px;
+  width: 44px;
+  height: 44px;
   border: 1px solid #ffffff25;
   background: transparent;
   color: inherit;
@@ -1174,6 +1164,7 @@ img {
   overflow: auto;
   padding: 20px;
   overscroll-behavior: contain;
+  overflow-anchor: none;
 }
 .viewer-image-stack {
   margin: 0 auto;
@@ -1218,6 +1209,7 @@ img {
   gap: 7px;
   padding: 8px;
   font-size: 14px;
+  min-height: 44px;
 }
 .viewer-footer span {
   font-size: 12px;
@@ -1464,8 +1456,8 @@ img {
     gap: 6px;
   }
   .viewer-icon {
-    width: 35px;
-    height: 35px;
+    width: 44px;
+    height: 44px;
   }
   .viewer-scroll {
     padding: 12px;
