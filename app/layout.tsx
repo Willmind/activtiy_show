@@ -56,6 +56,16 @@ export default function RootLayout({
             <span>© {new Date().getFullYear()} 曾慧仪 · 行政活动作品集</span>
             <span>以细节成就体验，以行动回应信任。</span>
           </div>
+          <div className="shell">
+            <a
+              className="footer-filing"
+              href="https://beian.miit.gov.cn/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              粤ICP备2026144544号-1
+            </a>
+          </div>
         </footer>
       </body>
     </html>
